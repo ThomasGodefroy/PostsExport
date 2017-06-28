@@ -82,7 +82,44 @@ class PostsExport_Plugin
 		}
 ?>
 		</select>
+<?php
+		echo "\t";
+		$rows = $wpdb->get_results("SELECT DISTINCT DATE_FORMAT(post_date, '%M %Y') as date FROM wp_posts ORDER BY post_date DESC;");
+?>
+		Date de fin :<select name="date2" size="1">
+
+		<option value="vide">Sélectionner</option>
+
+<?php		foreach($rows as $row)
+		{
+?>
+			<option>
+			<?php echo $row->date; ?>
+			</option>'
+<?php
+		}
+?>
+		</select>
 		<br/>
+<?php
+		$rows = $wpdb->get_results("SELECT DISTINCT post_status FROM wp_posts;");
+?>
+		Etat :<select name="etat" size="1">
+
+		<option value="Tout_etat">Tout</option>
+
+<?php		foreach($rows as $row)
+		{
+?>
+			<option>
+			<?php echo $row->post_status; ?>
+			</option>'
+<?php
+		}
+?>
+		</select>
+		<br/>
+
 		<input type="hidden" name="valider" value="1"/>
     		<?php submit_button('Valider'); ?>
 		</form>
