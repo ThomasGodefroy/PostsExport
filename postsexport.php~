@@ -102,7 +102,7 @@ class PostsExport_Plugin
 		</select>
 		<br/>
 <?php
-		$rows = $wpdb->get_results(";");
+		$rows = $wpdb->get_results("SELECT DISTINCT post_status FROM wp_posts;");
 ?>
 		Etat :<select name="etat" size="1">
 
@@ -112,7 +112,7 @@ class PostsExport_Plugin
 		{
 ?>
 			<option>
-			<?php echo $row->; ?>
+			<?php echo $row->post_status; ?>
 			</option>'
 <?php
 		}

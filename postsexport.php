@@ -120,8 +120,8 @@ class PostsExport_Plugin
 		</select>
 		<br/>
 
-		<input type="hidden" name="valider" value="1"/>
-    		<?php submit_button('Valider'); ?>
+		<input type="hidden" name="telecharger" value="1"/>
+    		<?php submit_button('Télécharger le fichier d\'export'); ?>
 		</form>
 <?php
 
